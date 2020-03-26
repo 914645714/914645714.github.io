@@ -10,11 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="基于Python + Flask +Echarts打造疫情监控系统(1)摘自:东方瑞通
-2.1使用urllib发送请求
-request.urlopen()方法
+    <meta name="description" content="基于Python+Flask+Echarts打造疫情监控系统(1)摘自:东方瑞通前言:如何查看“User-Agent” :”….“
 
-from urllib import,"> 
+查看页面源码 Windows(F12) Mac(command+,"> 
     <meta name="author" content="阿衰"> 
     <link rel="alternative" href="atom.xml" title="衰小殇的博客" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -66,8 +64,10 @@ from urllib import,">
 
         </div>
         <div class="content markdown">
-            <h2 id="基于Python-Flask-Echarts打造疫情监控系统-1"><a href="#基于Python-Flask-Echarts打造疫情监控系统-1" class="headerlink" title="基于Python + Flask +Echarts打造疫情监控系统(1)"></a>基于Python + Flask +Echarts打造疫情监控系统(1)</h2><p>摘自:<a href="https://www.bilibili.com/video/BV177411j7qJ?p=1" target="_blank" rel="noopener">东方瑞通</a></p>
-<h3 id="2-1使用urllib发送请求"><a href="#2-1使用urllib发送请求" class="headerlink" title="2.1使用urllib发送请求"></a>2.1使用urllib发送请求</h3><ul>
+            <h2 id="基于Python-Flask-Echarts打造疫情监控系统-1"><a href="#基于Python-Flask-Echarts打造疫情监控系统-1" class="headerlink" title="基于Python+Flask+Echarts打造疫情监控系统(1)"></a>基于Python+Flask+Echarts打造疫情监控系统(1)</h2><p>摘自:<a href="https://www.bilibili.com/video/BV177411j7qJ?p=1" target="_blank" rel="noopener">东方瑞通</a><br>前言:如何查看“User-Agent” :”….“</p>
+<ul>
+<li>查看页面源码 Windows(F12) Mac(command+option+c)</li>
+<li>找到Network(网络)一栏  点击第一个行信息,然后在右边下面部分查找<h3 id="2-1使用urllib发送请求"><a href="#2-1使用urllib发送请求" class="headerlink" title="2.1使用urllib发送请求"></a>2.1使用urllib发送请求</h3></li>
 <li>request.urlopen()方法<a id="more"></a>
 <blockquote>
 <p>from urllib import request<br>url = “<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a>“<br>res = request.urlopen(url) #访问url并获得响应<br>print(res.geturl()) #获取主机地址<br>print(res.getcode()) #获取请求状态码<br>print(res.info()) #获取响应头<br>html = res.read() #获取字节内容</p>
@@ -88,12 +88,13 @@ from urllib import,">
 <ul>
 <li>requests.get()<!--more-->
 <blockquote>
-<p>import requests<br>url = “<a href="http://www.dianping.com" target="_blank" rel="noopener">http://www.dianping.com</a>“<br>resp = request.get(url) #发起请求<br>print(resp.encoding) #查看编码<br>print(resp.status_code) #获取主状态码<br>html = resp.text</p>
+<p>import requests<br>url = “<a href="http://www.dianping.com" target="_blank" rel="noopener">http://www.dianping.com</a>“<br>resp = requests.get(url) #发起请求<br>print(resp.encoding) #查看编码<br>print(resp.status_code) #获取主状态码<br>html = resp.text</p>
 <!--more-->
 <p>#print(html)<br>resp.encoding = “utf-8” #解码<br>html = resp.text<br>print(html)</p>
 </blockquote>
 </li>
 </ul>
+<p><strong><em>同样反爬措施就是在之前那个位置加header请求头</em></strong></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
