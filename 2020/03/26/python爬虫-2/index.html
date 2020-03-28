@@ -76,7 +76,7 @@
 </blockquote>
 </li>
 </ul>
-<p><strong>*因为有些网站爬取时候会出现403(请求被禁止)状态,也就是反爬</strong><br>解决方案 添加header信息,这是最基本的反爬措施<br><!--more--></p>
+<p><strong><em>因为有些网站爬取时候会出现403(请求被禁止)状态,也就是反爬</em></strong><br>解决方案 添加header信息,这是最基本的反爬措施<br><!--more--></p>
 <blockquote>
 <p>from urllib import request<br>url = “<a href="http://www.dianping.com" target="_blank" rel="noopener">http://www.dianping.com</a>“<br>header = {<br>“User-Agent” :”….”<br>}<br>req = request(url,headers=header)<br>res = request.urlopen(url) #访问url并获得响应<br>print(res.geturl()) #获取主机地址<br>print(res.getcode()) #获取请求状态码<br>print(res.info()) #获取响应头<br>html = res.read() #获取字节内容<br><!--more--></p>
 <p>#print(html)<br>html.decode(“utf-8”) #解码<br>print(html)</p>
