@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Python爬虫实战篇(全国疫情监控)3 - 衰小殇的博客</title>
+    <title>mysql - 衰小殇的博客</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="基于Python+Flask+Echarts打造疫情监控系统(2)摘自:东方瑞通
-3.1使用beautifulsoup4解析内容beautifulsoup4将复杂的HTML文档转换成一个树形结构,每,"> 
+    <meta name="description" content="Mac下连接本地数据库，出现Access denied for user ‘root‘@’localhost’ (using password: YES)转载:IDonng__连接本地服务器时候,我,"> 
     <meta name="author" content="阿衰"> 
     <link rel="alternative" href="atom.xml" title="衰小殇的博客" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -36,7 +35,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Python爬虫实战篇(全国疫情监控)3</h3>
+    <h3 class="subtitle">mysql</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -54,45 +53,49 @@
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">Python爬虫实战篇(全国疫情监控)3</h1>
+        <h1 class="title">mysql</h1>
         <div class="stuff">
-            <span>三月 27, 2020</span>
+            <span>四月 25, 2020</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python那些事儿/">python那些事儿</a></li></ul>
-
 
         </div>
         <div class="content markdown">
-            <h2 id="基于Python-Flask-Echarts打造疫情监控系统-2"><a href="#基于Python-Flask-Echarts打造疫情监控系统-2" class="headerlink" title="基于Python+Flask+Echarts打造疫情监控系统(2)"></a>基于Python+Flask+Echarts打造疫情监控系统(2)</h2><p>摘自:<a href="https://www.bilibili.com/video/BV177411j7qJ?p=1" target="_blank" rel="noopener">东方瑞通</a></p>
-<h3 id="3-1使用beautifulsoup4解析内容"><a href="#3-1使用beautifulsoup4解析内容" class="headerlink" title="3.1使用beautifulsoup4解析内容"></a>3.1使用beautifulsoup4解析内容</h3><p><strong><em>beautifulsoup4将复杂的HTML文档转换成一个树形结构,每个节点都是Python对象</em></strong></p>
-<ul>
-<li><p>安装beautifulsoup4库</p>
-<a id="more"></a>
+            <h2 id="Mac下连接本地数据库，出现Access-denied-for-user-‘root‘-’localhost’-using-password-YES"><a href="#Mac下连接本地数据库，出现Access-denied-for-user-‘root‘-’localhost’-using-password-YES" class="headerlink" title="Mac下连接本地数据库，出现Access denied for user ‘root‘@’localhost’ (using password: YES)"></a>Mac下连接本地数据库，出现Access denied for user ‘root‘@’localhost’ (using password: YES)</h2><p>转载:<a href="https://blog.csdn.net/z90818/article/details/88106973" target="_blank" rel="noopener">IDonng__</a><br>连接本地服务器时候,我们会出现Access denied for user ‘root‘@’localhost’ (using password: YES)情况<br>这个意思是‘拒绝用户“root”@“localhost”的访问（使用密码：YES ’<br><strong><em>下面是解决方案(请按步骤进行)</em></strong></p>
+<h3 id="1-打开偏好设置-gt-点击最下面mysql-并关闭mysql服务"><a href="#1-打开偏好设置-gt-点击最下面mysql-并关闭mysql服务" class="headerlink" title="1.打开偏好设置-&gt;点击最下面mysql,并关闭mysql服务"></a>1.打开偏好设置-&gt;点击最下面mysql,并关闭mysql服务</h3><h3 id="2-进入终端"><a href="#2-进入终端" class="headerlink" title="2.进入终端"></a>2.进入终端</h3><ul>
+<li>输入<a id="more"></a>
 <blockquote>
-<p>pip install -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a> beautifulsoup4</p>
+<p>cd /usr/local/mysql/bin/ #进入mysql主目录,点击回车</p>
 </blockquote>
 </li>
-<li><p>beautifulsoup(html)<br>获取节点:find()、find_all()/select()<br>获取属性:attrs<br>获取文本:text</p>
-</li>
-</ul>
-<!--more-->
+<li>输入<!--more-->
 <blockquote>
-<p>import requests<br>from bs4 import BeautifulSoup<br>url = “<a href="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1&quot;" target="_blank" rel="noopener">https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1&quot;</a><br>resp = requests.get(url)<br>print(resp.encoding)<br>resp.encoding = “utf-8”<br>html = resp.text<br>soup = BeautifulSoup(html)<br>soup.find(“h2”).text #获取第一个h2标签<br>for i in soup.find_all(“a”)<br>print (i)</p>
+<p>sudo su #回车,获取管理员权限</p>
 </blockquote>
-<h3 id="3-2使用re解析内容"><a href="#3-2使用re解析内容" class="headerlink" title="3.2使用re解析内容"></a>3.2使用re解析内容</h3><p><strong><em>re是python自带的正则表达板块,使用它需要有一定的<a href="https://www.runoob.com/regexp/regexp-syntax.html" target="_blank" rel="noopener">正则表达</a>基础</em></strong><br>re.search(regex,str)</p>
-<ul>
-<li>在str中查找满足条件的字符串,匹配不上返回None</li>
-<li>对h返回结果可以分组,可在字符串内添加小括号分离数据:<br>groups()<br>group(index):返回指定分组内容<!--more-->
+</li>
+<li>输入<!--more-->
 <blockquote>
-<p>import re<br>html = “2月12日0-24时,我省新型冠状病毒肺炎新增确诊病例15例”<br>confirm_add_patten = “新增确诊病例(\d+)”<br>confirm_add = re.search(confirm_add_patten,html)<br>print(confirm_add)<br>print(confirm_add.groups())<br>print(confirm_add.group(0))<br>print(confirm_add.group(1))</p>
+<p>./mysqld_safe –skip-grant-tables &amp; #回车以禁止mysql验证功能，mysql会自动重启，偏好设置中的mysql状态会变成running</p>
 </blockquote>
 </li>
 </ul>
-<p><strong><em>学习小贴士:关于hexo  diaspora主题怎样添加图片</em></strong></p>
-<ul>
-<li>在你创建的.md文件中,在”title: Python爬虫实战篇(全国疫情监控)3“下加入“cover: /img/cover1.png”</li>
+<h3 id="3-进入后会出现sh-3-2-大概会出现这样-具体字母数字记不得了"><a href="#3-进入后会出现sh-3-2-大概会出现这样-具体字母数字记不得了" class="headerlink" title="3.进入后会出现sh#3.2(大概会出现这样,具体字母数字记不得了)"></a>3.进入后会出现sh#3.2(大概会出现这样,具体字母数字记不得了)</h3><ul>
+<li>继续输入<!--more-->
+<blockquote>
+<p>./mysql #回车</p>
+</blockquote>
+</li>
+<li>输入<!--more-->
+<blockquote>
+<p>flush privileges; #注意后面有;</p>
+</blockquote>
+</li>
+<li>输入<!--more-->
+<blockquote>
+<p>ALTER user ‘root‘@’localhost’ IDENTIFIED BY ‘你的密码’ ; #注意后面有;</p>
+</blockquote>
+</li>
 </ul>
-
+<h3 id="最后在终端输入-mysql-uroot-p-登陆来验证是否修改成功吧"><a href="#最后在终端输入-mysql-uroot-p-登陆来验证是否修改成功吧" class="headerlink" title="最后在终端输入 mysql -uroot -p 登陆来验证是否修改成功吧!"></a>最后在终端输入 <strong><em>mysql -uroot -p</em></strong> 登陆来验证是否修改成功吧!</h3>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src>
