@@ -127,7 +127,42 @@ if($info) {
     return $this-&gt;ajaxReturn($data);
 }
 </code></pre><p>  }</p>
+<h2 id="附微信小程序搜索功能！-thinkphp"><a href="#附微信小程序搜索功能！-thinkphp" class="headerlink" title="附微信小程序搜索功能！(thinkphp)"></a>附微信小程序搜索功能！(thinkphp)</h2><p>摘自:<a href="https://blog.csdn.net/weixin_39927850/article/details/87990384" target="_blank" rel="noopener">TANKING-</a></p>
+<h3 id="MessageController-class-php-1"><a href="#MessageController-class-php-1" class="headerlink" title="MessageController.class.php"></a>MessageController.class.php</h3><!--more-->
+<blockquote>
+<p>public function search(){</p>
+</blockquote>
+<pre><code>    //获取表单数据
+    $keyword1 = $_GET[&quot;keyword&quot;];
+    //过滤表单空格
+    $keyword2 = trim($keyword1);
+    //当表单提交空白数据时
+    if(empty($keyword2)){
+        //构建数组
+        $arr = array(
+                &quot;empty&quot; =&gt; &quot;表单不能为空&quot;
+            );
+        //把数组转换为json
+        $data = json_encode($arr);
+        echo &quot;[$data]&quot;;
 
+    }else{
+        //过滤表单特殊字符
+    $replace = array(&apos;!&apos;,&apos;@&apos;,&apos;#&apos;,&apos;$&apos;,&apos;%&apos;,&apos;^&apos;,&apos;&amp;&apos;,&apos;*&apos;,&apos;(&apos;,&apos;)&apos;,&apos;_&apos;,&apos;-&apos;,&apos;+&apos;,&apos;=&apos;,&apos;{&apos;,&apos;}&apos;,&apos;[&apos;,&apos;]&apos;,&apos;;&apos;,&apos;:&apos;,&apos;&quot;&apos;,&apos;&lt;&apos;,&apos;&gt;&apos;,&apos;?&apos;,&apos;/&apos;,&apos;|&apos;);
+    $keyword3 = str_replace($replace, &apos;&apos;, $keyword2);
+
+    //实例化数据库表
+    $Message = M(&apos;test1&apos;);
+
+    //设置查询条件
+    $where[&apos;name&apos;] = array(&apos;like&apos;, &apos;%&apos;.$keyword3.&apos;%&apos;);
+
+    //查询数据
+    $all_messages = $Message-&gt;field(&apos;&apos;,&apos;photo&apos;,&apos;&apos;)-&gt;where($where)-&gt;select();
+    dump($all_messages);
+    }
+}
+</code></pre>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src>
